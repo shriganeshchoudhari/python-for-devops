@@ -1,0 +1,6 @@
+2025-12-27 10:00:01 INFO Starting application
+2025-12-27 10:00:05 WARNING Low disk space
+2025-12-27 10:00:10 ERROR Failed to connect to database
+2025-12-27 10:00:15 INFO Processing request
+2025-12-27 10:00:20 DEBUG Debugging mode enabled
+2025-12-27 10:00:25 INFO Application running

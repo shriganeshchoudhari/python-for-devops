@@ -1,93 +1,56 @@
-# Day 06 – Building a CLI Tool for DevOps (argparse)
+# Day 06 – Configuration Management & YAML Parsing
 
 ## Task
 
-Today’s goal is to convert your Python script into a **CLI (Command Line Interface) tool**.
+In this exercise you will practice **reading and handling configuration files** commonly used in DevOps pipelines. You will:
 
-You will take your **Day 05 OOP Log Analyzer** and enhance it so it can be executed like a real DevOps tool using command-line arguments.
-
-Your CLI tool should:
-- Accept log file path using `--file`
-- Accept output file path using `--out`
-- (Optional) Accept log level filter using `--level` (example: ERROR)
-- Print summary to terminal
-- Write summary to an output file
-
-This task helps you build tools that work like real DevOps utilities.
-
+- Create a small YAML configuration file.
+- Write a Python script that loads the YAML, validates required keys, and prints a concise summary.
+- Add basic error handling for missing files, malformed YAML, and missing configuration values.
+- Optionally expose the configuration via command‑line arguments.
 
 ## Expected Output
 
-- One Python script (example: `log_analyzer_cli.py`)
-- Script should run like:
-  - `python log_analyzer_cli.py --file app.log --out summary.txt`
-- Output should be visible:
-  - In terminal
-  - In output file
+Running the script should display the loaded configuration in a readable format, for example:
 
+```
+Configuration Summary:
+- environment: production
+- version: 1.2.3
+- services:
+  - web
+  - db
+  - cache
+```
 
 ## Guidelines
 
-- Use:
-  - `argparse` to parse CLI arguments
-  - Functions and clean code structure
-  - Your Day 05 class-based logic (reuse it, do not rewrite everything)
-- Required arguments:
-  - `--file` (log file path)
-- Optional arguments:
-  - `--out` (output file path)
-  - `--level` (filter only one level like ERROR)
-- Follow PEP8 and best practices
-- Add basic validation:
-  - If file is missing, show a friendly error message
-
+- Use the `yaml` module (`PyYAML`). Install it with `pip install pyyaml`.
+- Keep the script modular: a function to load the file, a function to validate keys, and a `main()` entry point.
+- Add `try/except` blocks to catch:
+  - `FileNotFoundError` when the YAML file does not exist.
+  - `yaml.YAMLError` for malformed content.
+  - Custom `ValueError` for missing required keys.
+- Follow PEP‑8 style and include type hints.
 
 ## Resources
 
-- argparse documentation:
-  https://docs.python.org/3/library/argparse.html
-
-- PEP8 – Python Style Guide:
-  https://peps.python.org/pep-0008/
-
-- Your Day 05 OOP script
-
+- PyYAML documentation: https://pyyaml.org/wiki/PyYAMLDocumentation
+- YAML basics: https://yaml.org/spec/1.2/spec.html
+- Python `argparse` tutorial: https://docs.python.org/3/library/argparse.html
 
 ## Why This Matters for DevOps
 
-Most DevOps tools are CLI-based:
-- kubectl
-- terraform
-- aws cli
-- helm
-
-DevOps engineers build internal CLI tools to:
-- analyze logs quickly
-- automate checks
-- run scripts consistently across environments
-
-This task trains you to write automation the DevOps way.
-
+Configuration files are the backbone of infrastructure‑as‑code, CI/CD pipelines, and container orchestration. Being able to reliably parse and validate them programmatically reduces deployment errors and improves automation.
 
 ## Submission
 
-1. Add your CLI-based script inside the `day-06` folder
-2. Ensure the script runs using CLI arguments
-3. Verify output is generated
-4. Commit and push your changes to your fork
+1. Add the `practice` folder inside `day-06`.
+2. Place the `config_parser.py` script and a sample `config.yaml` file there.
+3. Run the script to ensure it prints the expected summary.
+4. Commit and push your changes.
 
+---
 
-## Learn in Public
-
-Share your progress on LinkedIn:
-- Post a small snippet showing your `argparse` setup or CLI usage
-- Share output (terminal + output file)
-- Write 2–3 lines on what you learned today
-
-Optional:
-- Tag **TrainWithShubham** or **Shubham Londhe**
-- Use hashtags: `#PythonForDevOps #TrainWithShubham #DevOpsKaJosh` (Helps me to filter post and Like/ Comment / Repost / engage)
-
-
-Happy Learning  
-[TrainWithShubham](https://www.trainwithshubham.com/)
+Happy Learning!
+[TrainWithShubham](https://www.trainwithshham.com/)
