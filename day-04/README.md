@@ -1,3 +1,4 @@
+cls
 # Day 04 – File Handling & Log Analysis for DevOps
 
 ## Task
